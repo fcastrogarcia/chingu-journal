@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.selected.active {
+  color: #1890ff;
+  font-weight: 700;
+}
+h3,
+p,
+h2,
+button {
+  color: #444444;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.hide-scrollbar {
+  overflow-y: hidden;
+}
+i {
+  cursor: pointer;
+  font-size: 18px;
+}
