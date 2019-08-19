@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import ContentEditable from "react-contenteditable";
 
 export const Fab = styled.button`
   position: fixed;
@@ -80,8 +81,15 @@ export const Entry = styled.div`
     props.open ? "4px 15px 72px 15px" : "4px 15px 75px 15px"};
   margin: 10px 10px;
   outline: none;
+
   &:hover {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  @media (max-width: 768px) {
+    height: ${props => (props.open ? "100vh" : "23em")};
+    width: ${props => (props.open ? "100vw" : "19em")};
+    margin: ${props => (props.open ? "0" : "10px 10px")};
+    border-radius: ${props => (props.open ? "0" : "")};
   }
 `;
 
@@ -95,22 +103,29 @@ export const Text = styled.div`
   word-break: break-word;
   text-align: ${props => (props.active ? "justify" : "left")};
   margin: ${props => (props.active ? "1em" : "0")};
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 `;
 
-//text style for ContentEditable component
-export const textStyle = {
-  fontSize: "0.875rem",
-  outline: "none",
-  fontWeight: "400",
-  color: "rgba(0,0,0,0.6)",
-  wordBreak: "break-word",
-  lineheight: "1.25rem",
-  fontFamily: `'Roboto', monospace`,
-  margin: "1em",
-  overflowY: "hidden",
-  textAlign: "left",
-  minHeight: "27em"
-};
+export const StyledContentEditable = styled(ContentEditable)`
+  font-size: 0.875rem;
+  outline: none;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  word-break: break-word;
+  line-height: 1.25rem;
+  font-family: "Roboto", monospace;
+  margin: 1em;
+  overflow-y: hidden;
+  text-align: left;
+  height: auto;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+`;
 
 export const IconsWrapper = styled.div`
   position: relative;
@@ -124,6 +139,18 @@ export const IconsWrapper = styled.div`
   justify-content: space-around;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+
+  @media (max-width: 768px) {
+    border-radius: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 22px;
+    background-color: rgba(79, 149, 255, 0.6);
+  }
 `;
 
 export const Navbar = styled.nav`
@@ -135,7 +162,7 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(52, 131, 250, 0.1);
+  background-color: rgba(79, 149, 255, 0.2);
 
   @media (max-width: 768px) {
     padding: 5px 1em;
@@ -144,7 +171,7 @@ export const Navbar = styled.nav`
 
 export const Layout = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: start;
   flex-wrap: wrap;
   width: 100vw;
@@ -152,10 +179,6 @@ export const Layout = styled.div`
   flex-direction: row;
   color: #444444;
   margin-top: 1em;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 `;
 
 export const StyledLik = styled(Link)`

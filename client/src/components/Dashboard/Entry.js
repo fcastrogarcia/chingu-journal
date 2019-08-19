@@ -6,7 +6,8 @@ import {
   Text,
   ModalLayout,
   textStyle,
-  IconsWrapper
+  IconsWrapper,
+  StyledContentEditable
 } from "../../styles/Dashboard";
 import useEditEntry from "../../customHooks/useEditEntry";
 
@@ -34,10 +35,9 @@ export default props => {
             style={{ minHeight: "25px", outline: "none" }}
           />
           <Scrollbars autoHide>
-            <ContentEditable
+            <StyledContentEditable
               html={`<p>${inputs.text}</p>`}
               onChange={handleInputs}
-              style={textStyle}
               id="text"
             />
           </Scrollbars>
@@ -59,5 +59,3 @@ export default props => {
     </Fragment>
   );
 };
-
-

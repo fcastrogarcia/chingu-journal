@@ -9,9 +9,11 @@ export default (token, setEntrysData, dispatch) => {
   const fetchPosts = async () => {
     if (_token) {
       const user_data = jwt_decode(_token);
-      dispatch({ type: "STORE_DATA", payload: user_data });
-
       const headers = { "access-token": _token };
+
+      dispatch({ type: "STORE_DATA", payload: user_data });
+      dispatch({ type: "LOADING", payload: true });
+
       await axios
         .post("/api/posts/all", { user: user_data.id }, { headers })
         .then(res => {
@@ -24,7 +26,9 @@ export default (token, setEntrysData, dispatch) => {
             return obj;
           });
           setEntrysData(filteredData);
-        });
+        })
+        .then(() => dispatch({ type: "LOADING", payload: false }))
+        .catch(err => console.log(err));
     }
   };
   useEffect(() => {

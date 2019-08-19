@@ -22,6 +22,7 @@ export default (props, store) => {
     e.preventDefault();
     const { title, text } = inputs;
     const headers = { "access-token": token };
+
     axios
       .post("/api/posts/new", { user: store.user.id, title, text }, { headers })
       .then(res =>
@@ -30,12 +31,11 @@ export default (props, store) => {
           { title, text, _id: res.data._id }
         ])
       )
-      .then(handleOpenModal(setModalOpen, modalOpen))
+      .then(() => handleOpenModal(setModalOpen, modalOpen))
       .catch(() => setError(true));
   };
 
   return {
-    inputs,
     handleInputs,
     handleSubmit,
     isError
