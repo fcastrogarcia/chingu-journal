@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
-const dotenv = require("dotenv");
+require("dotenv").config()
 const history = require("connect-history-api-fallback");
 const keys = require("./config/keys");
 
@@ -20,7 +20,6 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-dotenv.config();
 
 //db config
 const db = keys.MONGO_URI;

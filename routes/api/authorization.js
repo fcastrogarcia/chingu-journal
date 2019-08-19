@@ -3,7 +3,6 @@ const secret = require("../../config/keys").SECRET;
 
 //authorization middleware
 module.exports = (req, res, next) => {
-  console.log(req.headers);
   const token = req.headers["access-token"];
 
   if (token) {
