@@ -3,7 +3,6 @@ import React, { createContext, useMemo, useReducer, useState } from "react";
 export const AuthContext = createContext();
 
 const initialState = {
-  isAuthenticated: false,
   user: {},
   token: "",
   signUpErrors: {},
@@ -16,9 +15,8 @@ const reducer = (state, action) => {
     case "USER_AUTHENTICATED":
       return {
         ...state,
-        isAuthenticated: action.payload ? true : false,
-        user: action.payload[0],
-        token: action.payload[1],
+        user: action.payload.decoded,
+        token: action.payload.parsed,
         signInErrors: {}
       };
     case "USER_REGISTERED":
@@ -40,6 +38,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: action.payload
+      };
+    case "STORE_DATA":
+      return {
+        ...state,
+        user: action.payload
       };
     default:
       return state;

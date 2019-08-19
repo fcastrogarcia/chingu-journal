@@ -137,7 +137,7 @@ export const Navbar = styled.nav`
   align-items: center;
 `;
 
-export const LayoutWrapper = styled.div`
+export const Layout = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;

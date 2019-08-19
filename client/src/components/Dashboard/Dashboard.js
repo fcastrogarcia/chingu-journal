@@ -1,25 +1,24 @@
 import React, { useContext, useState, Fragment } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Fab, ModalLayout, LayoutWrapper } from "../../styles/Dashboard";
+import { Fab, ModalLayout, Layout } from "../../styles/Dashboard";
 import NewEntryModal from "./NewEntryModal";
 import Entry from "./Entry";
 import Navbar from "./Navbar";
 import useFetchEntrys from "../../customHooks/useFetchEntrys";
 import { handleOpenModal } from "../../utils/utils";
 
-const name = sessionStorage.getItem("user_name");
-
 export default () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const { token } = useContext(AuthContext).store;
-  const { entrysData, setEntrysData } = useContext(AuthContext);
+  const { store, dispatch, entrysData, setEntrysData } = useContext(
+    AuthContext
+  );
 
-  useFetchEntrys(token, setEntrysData, entrysData);
+  useFetchEntrys(store.token, setEntrysData, dispatch);
 
   return (
     <Fragment>
-      <Navbar name={name} />
-      <LayoutWrapper>
+      <Navbar name={store.user.name} />
+      <Layout>
         {entrysData.map((entry, index) => (
           <Entry {...entry} setEntrysData={setEntrysData} key={index} />
         ))}
@@ -29,7 +28,7 @@ export default () => {
             <NewEntryModal props={{ setModalOpen, setEntrysData, modalOpen }} />
           </ModalLayout>
         )}
-      </LayoutWrapper>
+      </Layout>
     </Fragment>
   );
 };

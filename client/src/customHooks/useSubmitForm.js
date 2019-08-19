@@ -27,6 +27,7 @@ const registerUser = (inputs, setInputs, dispatch, props) => {
 
 const loginUser = async (inputs, dispatch, props) => {
   dispatch(loading(true));
+
   await axios
     .post("/api/users/login", inputs)
     .then(res => {
@@ -34,10 +35,8 @@ const loginUser = async (inputs, dispatch, props) => {
       const parsed = token.split("Bearer ")[1];
       const decoded = jwt_decode(token);
       console.log(decoded);
-      //set localstorage items
+      //set sessionStorage items
       sessionStorage.setItem("token", parsed);
-      sessionStorage.setItem("user_name", decoded.name);
-      sessionStorage.setItem("user_id", decoded.id);
 
       dispatch({ type: "USER_AUTHENTICATED", payload: { decoded, parsed } });
     })
