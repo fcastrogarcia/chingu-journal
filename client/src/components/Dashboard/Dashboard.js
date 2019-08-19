@@ -7,6 +7,11 @@ import Navbar from "./Navbar";
 import useFetchEntrys from "../../customHooks/useFetchEntrys";
 import { handleOpenModal } from "../../utils/utils";
 
+const style = {
+  color: "rgba(68, 68, 76, 0.3)",
+  marginLeft: "2em"
+};
+
 export default () => {
   const [modalOpen, setModalOpen] = useState(false);
   const { store, dispatch, entrysData, setEntrysData } = useContext(
@@ -19,6 +24,7 @@ export default () => {
     <Fragment>
       <Navbar name={store.user.name} />
       <Layout>
+        {entrysData.length === 0 && <h1 style={style}>Take note.</h1>}
         {entrysData.map((entry, index) => (
           <Entry {...entry} setEntrysData={setEntrysData} key={index} />
         ))}

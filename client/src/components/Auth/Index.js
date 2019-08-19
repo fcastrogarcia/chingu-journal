@@ -32,7 +32,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default () => {
   return (
     <Router>
-      <Route exact path="/" render={() => <Redirect to="/signup" />} />
+      <Route exact path="/" render={() => <Redirect to="/signin" />} />
       <Route path={`/(signin|signup)`} component={Navbar} />
       <Switch>
         <Route exact path="/signup" component={SignUp} />

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Fab = styled.button`
   position: fixed;
@@ -130,11 +131,15 @@ export const Navbar = styled.nav`
   padding: 0 2em;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 3.5em;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgba(52, 131, 250, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 5px 1em;
+  }
 `;
 
 export const Layout = styled.div`
@@ -151,4 +156,9 @@ export const Layout = styled.div`
   @media (max-width: 768px) {
     justify-content: center;
   }
+`;
+
+export const StyledLik = styled(Link)`
+  color: #44444c;
+  font-family: "Roboto Mono", monospace;
 `;

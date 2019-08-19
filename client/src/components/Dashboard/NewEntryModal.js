@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../styles/Dashboard";
 import { Input, Button } from "../../styles/Auth";
 import { Textarea } from "../../styles/Dashboard";
@@ -24,9 +25,10 @@ const style = {
 };
 
 export default ({ props }) => {
+  const { store } = useContext(AuthContext);
   const { setModalOpen, modalOpen } = props;
 
-  const { handleInputs, handleSubmit, isError } = useCreateEntry(props);
+  const { handleInputs, handleSubmit, isError } = useCreateEntry(props, store);
 
   return (
     <Fragment>

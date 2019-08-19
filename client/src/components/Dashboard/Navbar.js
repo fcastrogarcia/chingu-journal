@@ -1,8 +1,22 @@
 import React from "react";
-import { Navbar } from "../../styles/Dashboard";
+import { Navbar, StyledLik } from "../../styles/Dashboard";
 
-export default ({ name }) => (
-  <Navbar>
-    <p style={{ fontWeight: "500" }}>Welcome, {name} </p>
-  </Navbar>
-);
+export default ({ name }) => {
+  const handleSignOut = () => {
+    sessionStorage.removeItem("token");
+  };
+
+  return (
+    <Navbar>
+      <p style={{ fontWeight: "500" }}>
+        <span role="img" aria-label="hello">
+          👋
+        </span>{" "}
+        Welcome, {name}{" "}
+      </p>
+      <StyledLik to="/signin" onClick={handleSignOut}>
+        Sign Out
+      </StyledLik>
+    </Navbar>
+  );
+};

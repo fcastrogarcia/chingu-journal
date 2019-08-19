@@ -9,14 +9,16 @@
 h3,
 p,
 h2,
+h1,
 button {
-  color: #444444;
+  color: #44444c;
   font-family: "Roboto Mono", monospace;
 }
 
 body {
   overflow-x: hidden;
   overflow-y: auto;
+  width: 100vw;
 }
 .hide-scrollbar {
   overflow-y: hidden;

@@ -2,12 +2,11 @@ import { useState } from "react";
 import { handleOpenModal } from "../utils/utils";
 import axios from "axios";
 
-export default props => {
+export default (props, store) => {
   const [inputs, setInput] = useState({ title: "", text: "" });
   const [isError, setError] = useState(false);
   const { setModalOpen, modalOpen } = props;
 
-  const user = sessionStorage.getItem("user_id");
   const token = sessionStorage.getItem("token");
 
   const handleInputs = e => {
@@ -24,7 +23,7 @@ export default props => {
     const { title, text } = inputs;
     const headers = { "access-token": token };
     axios
-      .post("/api/posts/new", { user, title, text }, { headers })
+      .post("/api/posts/new", { user: store.user.id, title, text }, { headers })
       .then(res =>
         props.setEntrysData(data => [
           ...data,
