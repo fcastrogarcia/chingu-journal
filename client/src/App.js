@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
-import Landing from "./components/Landing/Landing";
+import Auth from "./components/Auth/Index";
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Landing />
+        <Auth />
       </div>
     </AuthProvider>
   );

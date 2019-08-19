@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
-import axios from "axios";
 import { Modal } from "../../styles/Dashboard";
-import { Input, Button } from "../../styles/Landing";
+import { Input, Button } from "../../styles/Auth";
 import { Textarea } from "../../styles/Dashboard";
-import useHandleEntrys from "../../customHooks/useHandleEntrys";
+import useCreateEntry from "../../customHooks/useCreateEntry";
 import { handleOpenModal } from "../../utils/utils";
 
 const style = {
@@ -25,27 +24,9 @@ const style = {
 };
 
 export default ({ props }) => {
-  const [isError, setError] = useState(false);
   const { setModalOpen, modalOpen } = props;
-  const user = sessionStorage.getItem("user_id");
-  const token = sessionStorage.getItem("token");
 
-  const callback = inputs => {
-    const { title, text } = inputs;
-    const headers = { "access-token": token };
-    axios
-      .post("/api/posts/new", { user, title, text }, { headers })
-      .then(res =>
-        props.setEntrysData(data => [
-          ...data,
-          { title, text, _id: res.data._id }
-        ])
-      )
-      .then(handleOpenModal(setModalOpen, modalOpen))
-      .catch(() => setError(true));
-  };
-
-  const { handleInputs, handleSubmit } = useHandleEntrys(callback);
+  const { handleInputs, handleSubmit, isError } = useCreateEntry(props);
 
   return (
     <Fragment>

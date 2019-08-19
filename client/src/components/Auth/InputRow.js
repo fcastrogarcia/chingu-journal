@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Input, Error, Label } from "../../styles/Landing";
+import { Input, Error, Label } from "../../styles/Auth";
 
 const style = {
   rowWrapper: {

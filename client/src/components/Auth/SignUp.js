@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import useSignUpForm from "../../customHooks/useSubmitForm";
 import { AuthContext } from "../../context/AuthContext";
-import { Form, Button, Layout } from "../../styles/Landing";
+import { Form, Button, Layout } from "../../styles/Auth";
 import InputRow from "./InputRow";
 import { BarLoader } from "react-spinners";
 

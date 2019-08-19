@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, List, ListItem, StyledLink } from "../../styles/Landing";
+import { Navbar, List, ListItem, StyledLink } from "../../styles/Auth";
 
 export default () => (
   <Navbar>

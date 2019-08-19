@@ -4,7 +4,6 @@ export const AuthContext = createContext();
 
 const initialState = {
   isAuthenticated: false,
-  signUpSuccess: false,
   user: {},
   token: "",
   signUpErrors: {},
