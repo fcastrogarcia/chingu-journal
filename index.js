@@ -5,6 +5,7 @@ const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
+const history = require("connect-history-api-fallback");
 const keys = require("./config/keys");
 
 //routers
@@ -14,7 +15,7 @@ const posts = require("./routes/api/posts");
 const authorization = require("./routes/api/authorization");
 
 const app = express();
-
+app.use(history());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,7 +37,7 @@ app.use("/api/posts", authorization, posts);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "client/build/index.html"));
   });
 }
