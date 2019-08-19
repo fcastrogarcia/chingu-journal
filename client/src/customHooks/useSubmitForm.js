@@ -18,6 +18,7 @@ const registerUser = (inputs, setInputs, dispatch, props) => {
     .then(() => dispatch({ type: "USER_REGISTERED" }))
     .then(() => setInputs({ name: "", email: "", password: "", password2: "" }))
     .then(() => dispatch(loading(false)))
+    .then(() => props.history.push("/signin"))
     .catch(err =>
       dispatch({ type: "SIGN_UP_ERRORS", payload: err.response.data })
     )
@@ -32,6 +33,7 @@ const loginUser = async (inputs, dispatch, props) => {
       const { token } = res.data;
       const parsed = token.split("Bearer ")[1];
       const decoded = jwt_decode(token);
+      console.log(decoded);
       //set localstorage items
       sessionStorage.setItem("token", parsed);
       sessionStorage.setItem("user_name", decoded.name);
@@ -54,7 +56,7 @@ export default (dispatch, props) => {
   const handleSubmit = e => {
     e && e.preventDefault();
     e.target.id === "registration"
-      ? registerUser(registerInputs, setRegisterInputs, dispatch)
+      ? registerUser(registerInputs, setRegisterInputs, dispatch, props)
       : loginUser(loginInputs, dispatch, props);
   };
 

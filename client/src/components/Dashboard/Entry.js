@@ -60,15 +60,4 @@ export default props => {
   );
 };
 
-//poner spinner
-//hacer que todo el contenido de la entry entre en la card
-//arreglar el arrastre en el new entry modal y el button de cancel qeu es feo
-//hacer que cuando se suelta el scrolling de la entry cuando está cerrada no se abra automaticamente
-//el entry modal
-//media queries
 
-//resolver el problema del user name guardado en session storage que no aparece en la primera carga
-//agarrarlo del context o no se qué
-//mensaje inicial cuando no hay nada en pantalla
-//hover a los íconos
-//arreglar media query en telefono del entry modal

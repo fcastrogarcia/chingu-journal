@@ -25,7 +25,6 @@ const reducer = (state, action) => {
     case "USER_REGISTERED":
       return {
         ...state,
-        signUpSuccess: true,
         signUpErrors: {}
       };
     case "SIGN_UP_ERRORS":

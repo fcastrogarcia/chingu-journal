@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
 import useSignUpForm from "../../customHooks/useSubmitForm";
 import { AuthContext } from "../../context/AuthContext";
 import { Form, Button, Layout } from "../../styles/Landing";
@@ -20,12 +21,13 @@ const style = {
   }
 };
 
-export default () => {
+const SignUp = props => {
   const { dispatch, store } = useContext(AuthContext);
   const { handleSubmit, handleRegisterInputs, registerInputs } = useSignUpForm(
-    dispatch
+    dispatch,
+    props
   );
-  const { signUpErrors: errors, signUpSuccess, loading } = store;
+  const { signUpErrors: errors, loading } = store;
 
   return (
     <Layout>
@@ -71,3 +73,5 @@ export default () => {
     </Layout>
   );
 };
+
+export default withRouter(SignUp);
