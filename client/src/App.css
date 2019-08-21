@@ -1,11 +1,11 @@
 .App {
   text-align: center;
 }
-
-.selected.active {
+.selected {
   color: #1890ff;
   font-weight: 700;
 }
+
 h3,
 p,
 h2,

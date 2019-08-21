@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-//Landing.js
+//Index.js
 export const Navbar = styled.nav`
   width: 100%;
   display: flex;
@@ -9,22 +9,21 @@ export const Navbar = styled.nav`
   justify-content: center;
   height: 4em;
 `;
-export const List = styled.div`
+export const LinksWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 2.8em;
-  border-bottom: 1px solid #dadce0;
 `;
-export const ListItem = styled.span`
-  list-style: none;
-  margin: 0 0.5em;
-`;
+
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: #444444;
   padding: 0em 1em;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.3px;
 `;
 export const Layout = styled.div`
   display: flex;
@@ -34,26 +33,40 @@ export const Layout = styled.div`
 `;
 
 //SignUp.js && SignIn.js
-export const Text = styled.p`
-  margin: 4px auto;
-  font-family: "Roboto Mono", monospace;
-`;
-export const Error = styled(Text)`
-  font-size: 12px;
-  color: red;
-  position: absolute;
-`;
 export const Form = styled.form`
   display: flex;
-  flex-direction: column;
-  padding: 10px 50px 50px 50px;
+  justify-content: center;
+  align-items: center;
   width: auto;
+  flex-direction: column;
 `;
+
+export const FormWrapper = styled.div`
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 450px;
+  margin: 2em;
+  padding-bottom: 45px;
+
+  @media (max-width: 768px) {
+    border: none;
+    margin: 30px 0 0 0;
+    width: auto;
+  }
+`;
+
+export const FormTitle = styled.h2`
+  color: #444444;
+  align-self: center;
+  font-family: "Roboto", sans-serif;
+`;
+
 export const Input = styled.input`
   height: 28px;
   width: ${props => props.width};
   background: #ffffff;
-  padding: 4px 11px;
+  padding: 4px 0;
   font-size: 14px;
   border-width: 1px;
   border-style: solid;
@@ -61,32 +74,70 @@ export const Input = styled.input`
   border-radius: 4px;
   color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
+  align-self: center;
+  font-family: "Roboto", sans-serif;
+  padding-left: 6px;
+
+  @media (max-width: 768px) {
+    width: 88vw;
+  }
 `;
+export const Error = styled.p`
+  font-size: 10px;
+  color: red;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.2px;
+  margin-top: 4px;
+  text-align: left;
+  width: 350px;
+  align-self: center;
+
+  @media (max-width: 768px) {
+    width: 88vw;
+  }
+`;
+
 export const Label = styled.label`
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
-  text-align: right;
-  padding: 10px 0;
-  width: 150px;
-  margin-right: 1em;
-  min-width: 115px;
-  font-family: "Roboto Mono", monospace;
+  color: #72767d;
+  font-size: 11px;
+  text-align: left;
+  padding: 5px 0;
+  width: 350px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  align-self: center;
+
+  @media (max-width: 768px) {
+    width: 88vw;
+  }
 `;
+
 export const Button = styled.button`
-  width: 7em;
-  margin-top: 3em;
+  width: 350px;
+  margin-top: 2em;
   text-align: center;
-  height: 32px;
+  height: 35px;
   border: 1px solid transparent;
   background-color: #1890ff;
-  color: #fff;
   padding: 0 15px;
-  font-size: 14px;
   border-radius: 4px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   outline: none;
   cursor: pointer;
+
+  /* font properties */
+  font-size: 13px;
   align-self: center;
-  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    width: 90vw;
+  }
 `;

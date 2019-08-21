@@ -2,24 +2,15 @@ import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import useSignUpForm from "../../customHooks/useSubmitForm";
 import { AuthContext } from "../../context/AuthContext";
-import { Form, Button, Layout } from "../../styles/Auth";
-import InputRow from "./InputRow";
+import {
+  Form,
+  Button,
+  Layout,
+  FormTitle,
+  FormWrapper
+} from "../../styles/Auth";
+import InputBlock from "./InputBlock";
 import { BarLoader } from "react-spinners";
-
-const style = {
-  wrapper: {
-    border: "1px solid #d9d9d9",
-    borderRadius: "4px",
-    overflow: "none",
-    width: "600px",
-    margin: "2em",
-    height: "500px"
-  },
-  h2: {
-    color: "#444444",
-    alignSelf: "center"
-  }
-};
 
 const SignUp = props => {
   const { dispatch, store } = useContext(AuthContext);
@@ -31,11 +22,11 @@ const SignUp = props => {
 
   return (
     <Layout>
-      <div style={style.wrapper}>
-        <BarLoader width={620} color={!loading ? "#fff" : "#1890ff"} />
+      <FormWrapper>
+        <BarLoader width={450} color={!loading ? "#fff" : "#1890ff"} />
         <Form onSubmit={handleSubmit} id="registration">
-          <h2 style={style.h2}>Register</h2>
-          <InputRow
+          <FormTitle>Register</FormTitle>
+          <InputBlock
             type="text"
             name="name"
             value={registerInputs.name}
@@ -43,7 +34,7 @@ const SignUp = props => {
             error={errors.name}
             text="Name"
           />
-          <InputRow
+          <InputBlock
             type="email"
             name="email"
             value={registerInputs.email}
@@ -51,7 +42,7 @@ const SignUp = props => {
             error={errors.email}
             text="Email"
           />
-          <InputRow
+          <InputBlock
             type="password"
             name="password"
             value={registerInputs.password}
@@ -59,7 +50,7 @@ const SignUp = props => {
             error={errors.password}
             text="Password"
           />
-          <InputRow
+          <InputBlock
             type="password"
             name="password2"
             value={registerInputs.password2}
@@ -69,7 +60,7 @@ const SignUp = props => {
           />
           <Button type="submit">Sign Up</Button>
         </Form>
-      </div>
+      </FormWrapper>
     </Layout>
   );
 };
