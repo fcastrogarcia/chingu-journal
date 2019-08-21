@@ -1,19 +1,23 @@
 import React from "react";
-import { Navbar, List, ListItem, StyledLink } from "../../styles/Auth";
+import { Navbar, LinksWrapper, StyledLink } from "../../styles/Auth";
+
+const style = {
+  link: { listStyle: "none", margin: "0 0.5em" }
+};
 
 export default () => (
   <Navbar>
-    <List>
-      <ListItem>
-        <StyledLink to="/signup" activeClassName="selected active">
+    <LinksWrapper>
+      <span style={style.link}>
+        <StyledLink to="/signup" activeClassName="selected">
           Sign Up
         </StyledLink>
-      </ListItem>
-      <ListItem>
-        <StyledLink activeClassName="selected active" to="/signin">
+      </span>
+      <span style={style.link}>
+        <StyledLink activeClassName="selected" to="/signin">
           Sign In
         </StyledLink>
-      </ListItem>
-    </List>
+      </span>
+    </LinksWrapper>
   </Navbar>
 );
