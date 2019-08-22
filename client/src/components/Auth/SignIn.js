@@ -42,7 +42,9 @@ const SignIn = props => {
             error={errors.password}
             text="Password"
           />
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" width={"350px"}>
+            Sign In
+          </Button>
         </Form>
       </FormWrapper>
     </Layout>

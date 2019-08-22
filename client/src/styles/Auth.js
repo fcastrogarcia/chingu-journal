@@ -99,15 +99,16 @@ export const Error = styled.p`
 
 export const Label = styled.label`
   color: #72767d;
-  font-size: 11px;
+  font-size: ${props => props.fontSize || "11px"};
   text-align: left;
   padding: 5px 0;
-  width: 350px;
+  width: ${props => props.width};
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   align-self: center;
+  margin: ${props => props.margin};
 
   @media (max-width: 768px) {
     width: 88vw;
@@ -115,12 +116,12 @@ export const Label = styled.label`
 `;
 
 export const Button = styled.button`
-  width: 350px;
-  margin-top: 2em;
+  width: ${props => props.width};
+  margin: ${props => props.margin || "2em"};
   text-align: center;
   height: 35px;
   border: 1px solid transparent;
-  background-color: #1890ff;
+  background-color: ${props => props.backgroundColor || "#1890ff"};
   padding: 0 15px;
   border-radius: 4px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -135,7 +136,7 @@ export const Button = styled.button`
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #fff;
+  color: ${props => props.color || "#fff"};
 
   @media (max-width: 768px) {
     width: 90vw;

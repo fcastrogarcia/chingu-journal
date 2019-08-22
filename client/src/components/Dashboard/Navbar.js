@@ -8,7 +8,7 @@ export default ({ name }) => {
 
   return (
     <Navbar>
-      <p style={{ fontWeight: "500" }}>
+      <p style={{ fontWeight: "500", fontFamily: `'Roboto', sans-serif` }}>
         <span role="img" aria-label="hello">
           👋
         </span>{" "}

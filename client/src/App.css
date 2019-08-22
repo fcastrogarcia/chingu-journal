@@ -7,10 +7,13 @@
 }
 
 h3,
-p,
 h2,
 h1,
 button {
+  color: #44444c;
+  font-family: "Roboto", sans-serif;
+}
+p {
   color: #44444c;
   font-family: "Roboto Mono", monospace;
 }

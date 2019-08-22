@@ -58,7 +58,9 @@ const SignUp = props => {
             error={errors.password2}
             text="Repeat Password"
           />
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit" width={"350px"}>
+            Sign Up
+          </Button>
         </Form>
       </FormWrapper>
     </Layout>

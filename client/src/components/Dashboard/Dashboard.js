@@ -9,7 +9,7 @@ import useFetchEntrys from "../../customHooks/useFetchEntrys";
 import { handleOpenModal } from "../../utils/utils";
 
 const style = {
-  color: "rgba(68, 68, 76, 0.3)" 
+  color: "rgba(68, 68, 76, 0.3)"
 };
 
 export default () => {

@@ -8,13 +8,13 @@ const style = {
     width: "350px",
     flexDirection: "column",
     justifyContent: "flex-start",
-    alignItems: "flex-start",
+    alignItems: "flex-start"
   }
 };
 export default ({ type, name, value, onChange, error, text }) => (
   <Fragment>
     <div style={style.wrapper}>
-      <Label>{text}</Label>
+      <Label width={"350px"}>{text}</Label>
       <Input
         type={type}
         name={name}

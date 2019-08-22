@@ -29,16 +29,22 @@ export const Fab = styled.button`
 
 export const Modal = styled.div`
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: stretch;
+  align-items: center;
   flex-direction: column;
-  width: 400px;
-  height: 450px;
+  width: 450px;
+  height: 550px;
   background-color: #fff;
   border-radius: 4px;
-  padding: 2px 25px;
+  padding: 0px 25px;
   opacity: 1;
+  @media (max-width: 768px) {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
 `;
+
 export const ModalLayout = styled.div`
   position: absolute;
   top: 0;
@@ -54,9 +60,8 @@ export const ModalLayout = styled.div`
 `;
 
 export const Textarea = styled.textarea`
-  height: 110px;
-  width: 100%;
-  padding: 4px 11px;
+  height: 200px;
+  width: 410px;
   font-size: 14px;
   border-width: 1px;
   border-style: solid;
@@ -64,6 +69,12 @@ export const Textarea = styled.textarea`
   border-radius: 4px;
   color: rgba(0, 0, 0, 0.65);
   background-color: #fff;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+
+  @media (max-width: 768px) {
+    width: 88vw;
+  }
 `;
 
 export const Entry = styled.div`
@@ -116,7 +127,7 @@ export const StyledContentEditable = styled(ContentEditable)`
   color: rgba(0, 0, 0, 0.6);
   word-break: break-word;
   line-height: 1.25rem;
-  font-family: "Roboto", monospace;
+  font-family: "Roboto", sans-serif;
   margin: 1em;
   overflow-y: hidden;
   text-align: left;
@@ -133,7 +144,7 @@ export const IconsWrapper = styled.div`
   left: 10px;
   margin: 10px 10px;
   display: flex;
-  background-color: #3483fa;
+  background-color: rgba(255, 246, 201, 1);
   padding: 15px 0;
   width: 30em;
   justify-content: space-around;
@@ -149,7 +160,7 @@ export const IconsWrapper = styled.div`
     margin: 0;
     padding: 20px 0;
     font-size: 22px;
-    background-color: rgba(79, 149, 255, 0.6);
+    background-color: rgba(255, 246, 201, 0.6);
   }
 `;
 
@@ -162,7 +173,7 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(79, 149, 255, 0.2);
+  background-color: #fff6c9;
 
   @media (max-width: 768px) {
     padding: 5px 1em;
@@ -183,5 +194,5 @@ export const Layout = styled.div`
 
 export const StyledLik = styled(Link)`
   color: #44444c;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto", sans-serif;
 `;

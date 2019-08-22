@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Modal } from "../../styles/Dashboard";
-import { Input, Button } from "../../styles/Auth";
+import { Input, Button, Label, FormTitle } from "../../styles/Auth";
 import { Textarea } from "../../styles/Dashboard";
 import useCreateEntry from "../../customHooks/useCreateEntry";
 import { handleOpenModal } from "../../utils/utils";
@@ -10,17 +10,7 @@ const style = {
   container: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "start",
-    width: "93%"
-  },
-  cancel: {
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    color: "#444444",
-    outline: "none",
-    float: "right",
-    fontWeight: "700"
+    alignItems: "start"
   }
 };
 
@@ -33,11 +23,13 @@ export default ({ props }) => {
   return (
     <Fragment>
       <Modal>
-        <h3>Create a New Entry</h3>
+        <FormTitle style={{ marginTop: "50px" }}>Create a New Entry</FormTitle>
         <div style={style.container}>
-          <p>Title</p>
+          <Label width={"410px"} fontSize={"13px"} margin={"10px 0 0 0"}>
+            Title
+          </Label>
           <Input
-            width={"100%"}
+            width={"410px"}
             autoFocus
             onChange={handleInputs}
             name="title"
@@ -45,16 +37,29 @@ export default ({ props }) => {
           />
         </div>
         <div style={style.container}>
-          <p>Text</p>
+          <Label width={"410px"} fontSize={"13px"} margin={"10px 0 0 0"}>
+            Text
+          </Label>
           <Textarea name="text" onChange={handleInputs} error={isError} />
         </div>
-        <Button onClick={handleSubmit}>Create</Button>
-        <button
-          style={style.cancel}
-          onClick={() => handleOpenModal(setModalOpen, modalOpen)}
-        >
-          X
-        </button>
+        <div>
+          <Button
+            onClick={handleSubmit}
+            width={"100px"}
+            margin={"25px 10px 0px 0px"}
+          >
+            Create
+          </Button>
+          <Button
+            onClick={() => handleOpenModal(setModalOpen, modalOpen)}
+            width={"100px"}
+            backgroundColor={"whitesmoke"}
+            color={"#444444"}
+            margin={"25px 10px 0px 0px"}
+          >
+            Cancel
+          </Button>
+        </div>
       </Modal>
     </Fragment>
   );
