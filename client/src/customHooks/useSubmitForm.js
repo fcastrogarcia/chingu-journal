@@ -34,7 +34,6 @@ const loginUser = async (inputs, dispatch, props) => {
       const { token } = res.data;
       const parsed = token.split("Bearer ")[1];
       const decoded = jwt_decode(token);
-      console.log(decoded);
       //set sessionStorage items
       sessionStorage.setItem("token", parsed);
 
@@ -49,8 +48,14 @@ const loginUser = async (inputs, dispatch, props) => {
 };
 
 export default (dispatch, props) => {
-  const [registerInputs, setRegisterInputs] = useState({});
-  const [loginInputs, setLoginInputs] = useState({});
+  const initialState = {
+    name: "",
+    email: "",
+    password: "",
+    password2: ""
+  }
+  const [registerInputs, setRegisterInputs] = useState(initialState);
+  const [loginInputs, setLoginInputs] = useState({ email: "", password: "" });
 
   const handleSubmit = e => {
     e && e.preventDefault();

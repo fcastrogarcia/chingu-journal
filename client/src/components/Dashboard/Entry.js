@@ -5,7 +5,6 @@ import {
   Entry,
   Text,
   ModalLayout,
-  textStyle,
   IconsWrapper,
   StyledContentEditable
 } from "../../styles/Dashboard";

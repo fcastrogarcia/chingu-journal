@@ -15,7 +15,6 @@ export default (props, store) => {
       ...inputs,
       [e.target.name]: e.target.value
     }));
-    console.log(inputs);
   };
 
   const handleSubmit = e => {

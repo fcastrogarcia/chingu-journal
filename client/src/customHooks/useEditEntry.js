@@ -17,7 +17,6 @@ export default props => {
       ...inputs,
       [e.currentTarget.id]: e.currentTarget.innerText
     }));
-    console.log(inputs);
   };
   //restore original values & close entry modal
   const discardChanges = () => {
