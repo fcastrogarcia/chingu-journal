@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { css } from "@emotion/core";
 
 //Index.js
 export const Navbar = styled.nav`
@@ -9,6 +10,7 @@ export const Navbar = styled.nav`
   justify-content: center;
   height: 4em;
 `;
+
 export const LinksWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -39,6 +41,9 @@ export const Form = styled.form`
   align-items: center;
   width: auto;
   flex-direction: column;
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -48,10 +53,13 @@ export const FormWrapper = styled.div`
   width: 450px;
   margin: 2em;
   padding-bottom: 45px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media (max-width: 768px) {
     border: none;
-    margin: 30px 0 0 0;
+    border-radius: 0px;
+    margin: 0px 0 0 0;
     width: auto;
   }
 `;
@@ -60,6 +68,7 @@ export const FormTitle = styled.h2`
   color: #444444;
   align-self: center;
   font-family: "Roboto", sans-serif;
+  margin-top: 1.3em;
 `;
 
 export const Input = styled.input`
@@ -140,5 +149,11 @@ export const Button = styled.button`
 
   @media (max-width: 768px) {
     width: 90vw;
+  }
+`;
+//overriding style of Bar Loader
+export const override = css`
+  @media (max-width: 768px) {
+    width: 100vw;
   }
 `;

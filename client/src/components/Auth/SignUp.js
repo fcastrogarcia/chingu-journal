@@ -7,7 +7,8 @@ import {
   Button,
   Layout,
   FormTitle,
-  FormWrapper
+  FormWrapper,
+  override
 } from "../../styles/Auth";
 import InputBlock from "./InputBlock";
 import { BarLoader } from "react-spinners";
@@ -23,7 +24,11 @@ const SignUp = props => {
   return (
     <Layout>
       <FormWrapper>
-        <BarLoader width={450} color={!loading ? "#fff" : "#1890ff"} />
+        <BarLoader
+          width={450}
+          color={!loading ? "#fff" : "#1890ff"}
+          css={override}
+        />
         <Form onSubmit={handleSubmit} id="registration">
           <FormTitle>Register</FormTitle>
           <InputBlock
