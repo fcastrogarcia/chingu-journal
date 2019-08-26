@@ -92,6 +92,7 @@ export const Entry = styled.div`
     props.open ? "4px 15px 72px 15px" : "4px 15px 75px 15px"};
   margin: 10px 10px;
   outline: none;
+  cursor: ${props => (props.open ? "" : "pointer")};
 
   &:hover {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -186,7 +187,8 @@ export const Layout = styled.div`
   align-items: start;
   flex-wrap: wrap;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  padding-bottom: 1em;
   flex-direction: row;
   color: #444444;
   margin-top: 1em;
