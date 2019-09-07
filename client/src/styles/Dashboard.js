@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import ContentEditable from "react-contenteditable";
 
@@ -44,7 +44,14 @@ export const Modal = styled.div`
     border-radius: 0;
   }
 `;
-
+const fadeIn = keyframes`
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+`;
 export const ModalLayout = styled.div`
   position: absolute;
   top: 0;
@@ -57,6 +64,7 @@ export const ModalLayout = styled.div`
   align-items: center;
   overflow-y: hidden;
   z-index: 1;
+  animation: ${fadeIn} 0.18s ease-out;
 `;
 
 export const Textarea = styled.textarea`
