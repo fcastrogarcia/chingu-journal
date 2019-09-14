@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const postschema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
+    ref: "User",
     required: true
   },
   title: {
