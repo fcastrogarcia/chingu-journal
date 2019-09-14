@@ -47,7 +47,7 @@ export const Form = styled.form`
 `;
 
 export const FormWrapper = styled.div`
-  border: 1px solid #d9d9d9;
+  /* border: 1px solid #d9d9d9; */
   border-radius: 4px;
   overflow: hidden;
   width: 450px;
@@ -55,6 +55,7 @@ export const FormWrapper = styled.div`
   padding-bottom: 45px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 15px 75px rgba(139, 140, 185, 0.118178);
   align-items: center;
   @media (max-width: 768px) {
     border: none;
