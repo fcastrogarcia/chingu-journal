@@ -43,7 +43,7 @@ export default props => {
       title: inputs.title,
       text: inputs.text
     };
-    axios.post("/api/posts/edit", data, { headers });
+    axios.put("/api/posts/edit", data, { headers });
   };
 
   //delete entry
@@ -55,7 +55,7 @@ export default props => {
     const data = {
       postId: props._id
     };
-    axios.post("/api/posts/delete", data, { headers });
+    axios.delete("/api/posts/delete", data, { headers });
   };
 
   return {

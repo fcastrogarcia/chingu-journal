@@ -34,7 +34,7 @@ router.post("/new", (req, res) => {
 });
 
 //delete post
-router.post("/delete", (req, res) => {
+router.delete("/delete", (req, res) => {
   const { postId } = req.body;
 
   if (postId) {
@@ -47,7 +47,7 @@ router.post("/delete", (req, res) => {
 });
 
 //edit post
-router.post("/edit", (req, res) => {
+router.put("/edit", (req, res) => {
   const { postId, title, text } = req.body;
 
   if (postId) {
